@@ -1,0 +1,32 @@
+.app-header{
+    background:  #263238;
+    height: 36px;
+
+    color: white;
+}
+
+.card-container{
+    position: absolute;
+    left:30%;
+    
+    right:auto;
+    
+    width:30%;
+}
+
+.btn-pointer{
+    cursor: pointer;
+}
+
+.red{
+    color:red;
+    font-weight: bold;
+}
+
+.dispNone{
+    display : none;
+}
+
+.dispBlock{
+    display: block;
+}
