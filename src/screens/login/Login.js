@@ -59,7 +59,8 @@ class Login extends Component {
             usernamePasswordRequired: 'dispNone',
             userName: "",
             password: "",
-            loggedIn: sessionStorage.getItem("access-token") == null ? false : true
+
+            loggedIn: false
         }
 
 
@@ -68,6 +69,9 @@ class Login extends Component {
 
 
     loginClickHandler = () => {
+
+        let accessToken = "8661035776.d0fcd39.87fd934e04f84253aaf234d8bd4e4c65"
+
         let loginUsername = "upgrad";
         let loginPassword = "upgrad";
         this.state.userName === "" ? this.setState({ userNameRequired: "dispBlock" }) : this.setState({ userNameRequired: "dispNone" });
@@ -78,11 +82,10 @@ class Login extends Component {
             let xhrLogin = new XMLHttpRequest();
             let that = this;
 
+
             xhrLogin.addEventListener("readystatechange", function () {
                 if (this.readyState === 4) {
-
-                    sessionStorage.setItem("access-token", xhrLogin.getResponseHeader("access-token"));
-
+                    sessionStorage.setItem("access-token", accessToken);
                     that.setState({
                         loggedIn: true
                     });
@@ -90,13 +93,13 @@ class Login extends Component {
                 }
             });
 
-            xhrLogin.open("POST", this.props.baseUrl + "auth/login");
-        xhrLogin.setRequestHeader("Authorization", "Basic " + window.btoa(this.state.username + ":" + this.state.loginPassword));
-        xhrLogin.setRequestHeader("Content-Type", "application/json");
-        xhrLogin.setRequestHeader("Cache-Control", "no-cache");
-        xhrLogin.send(dataLogin);
+            xhrLogin.open("POST", "this.props.baseUrl + users/self/?access_token="+accessToken);
+            
+            xhrLogin.setRequestHeader("Content-Type", "application/json");
+            xhrLogin.setRequestHeader("Cache-Control", "no-cache");
+            xhrLogin.send(dataLogin);
 
-          //  ReactDOM.render(<Home />, document.getElementById('root'));
+          
         } else if (this.state.userName !== "" && this.state.password !== "") {
             this.setState({ usernamePasswordRequired: "dispBlock" });
         }
@@ -147,8 +150,8 @@ class Login extends Component {
                             </FormControl>
                             <br /><br />
                             <FormControl>
-                              <Link to="/home"> <Button variant="contained" color="primary" className="btn-pointer">LOGIN</Button></Link>
-                                </FormControl>
+                                <Link to="/home"> <Button variant="contained" color="primary" className="btn-pointer" onClick={this.loginClickHandler}>LOGIN</Button></Link>
+                            </FormControl>
                         </CardContent>
 
                     </Card>
