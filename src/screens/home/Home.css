@@ -4,6 +4,10 @@
        
     position: absolute;
     top:4px;
+<<<<<<< HEAD
+=======
+
+>>>>>>> homepage header done
    right:80px;
     border-radius: 4px;
     width:300px;
@@ -33,7 +37,13 @@
     border-radius: 20px;
     border: 1px solid white;
     
+}
 
+.dispNone{
+    display: none;
+}
+
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 }
@@ -62,4 +72,8 @@
 .bluecColor{
     color:blue;
 >>>>>>> Home page posts display done
+=======
+.dispBlock{
+    display: block
+>>>>>>> homepage header done
 }

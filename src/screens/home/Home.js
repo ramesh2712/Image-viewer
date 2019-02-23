@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from '../../assets/logo.png';
 import search from '../../assets/search.svg';
+<<<<<<< HEAD
 import likesnum from '../../assets/likesnum.png';
 import './Home.css';
 import { withStyles } from '@material-ui/core/styles';
@@ -25,6 +26,16 @@ import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
+=======
+import './Home.css';
+import { withStyles } from '@material-ui/core/styles';
+import Input from '@material-ui/core/Input';
+import IconButton from '@material-ui/core/IconButton';
+import MenuItem from '@material-ui/core/MenuItem';
+import MenuList from '@material-ui/core/MenuList';
+import Divider from '@material-ui/core/Divider';
+
+>>>>>>> homepage header done
 
 const styles = theme => ({
     button: {
@@ -52,6 +63,7 @@ const styles = theme => ({
     input: {
         display: 'none',
     },
+<<<<<<< HEAD
 
     card: {
         maxWidth: 400,
@@ -78,6 +90,8 @@ const styles = theme => ({
     title: {
         color: theme.palette.primary.light,
     }
+=======
+>>>>>>> homepage header done
 });
 class Home extends Component {
 
@@ -89,9 +103,13 @@ class Home extends Component {
             usernames: "",
             menuLogo: "dispNone",
             data: [],
+<<<<<<< HEAD
             dataPosts: [],
             inputValue: "",
             gridRequired : "dispBlock"
+=======
+            dataPosts: []
+>>>>>>> homepage header done
 
         }
     }
@@ -133,10 +151,15 @@ class Home extends Component {
                 that.setState({
                     dataPosts: data
                 });
+<<<<<<< HEAD
                 // console.log(that.state.dataPosts)
                 //  console.log(that.state.dataPosts[1].images.low_resolution.url)
                 console.log(that.state.dataPosts[1].caption.text)
                 console.log(that.state.dataPosts[1].tags)
+=======
+                console.log(that.state.dataPosts)
+                console.log(that.state.dataPosts[1].images.low_resolution.url)
+>>>>>>> homepage header done
             }
 
         });
@@ -147,6 +170,11 @@ class Home extends Component {
         xhrPosts.send(dataPosts);
 
     }
+<<<<<<< HEAD
+=======
+    render() {
+        const { classes } = this.props;
+>>>>>>> homepage header done
 
     searchCaption = (e) => {
         this.setState({ inputValue: e.target.value });
@@ -162,6 +190,7 @@ class Home extends Component {
             <div className="app-header">
                 <header className="app-header">
                     <img src={logo} alt="logo" />
+<<<<<<< HEAD
 
 
                     <span className="white"><img src={search} />
@@ -171,6 +200,13 @@ class Home extends Component {
 
                     </span>
 
+=======
+                    <span className="white"><img src={search} />
+                        <Input type="text" disableUnderline={true} placeholder="Search.." />
+                        <IconButton className={classes.button} onClick={this.onClickProfileIcon}> <img className="profile-img" src={this.state.data.profile_picture} />
+                        </IconButton>
+                    </span>
+>>>>>>> homepage header done
                 </header>
                 <span className={this.state.menuLogo}>
                     <MenuList className={classes.menuPopup} disableUnderline="true">
@@ -180,6 +216,7 @@ class Home extends Component {
                         <MenuItem>Logout</MenuItem>
                     </MenuList>
                 </span>
+<<<<<<< HEAD
 
                 <div className="gridListMain">
                     {this.state.inputValue === "" && 
@@ -233,6 +270,8 @@ class Home extends Component {
 
                 </div>
 
+=======
+>>>>>>> homepage header done
             </div>
 
 
