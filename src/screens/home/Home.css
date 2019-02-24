@@ -43,3 +43,20 @@
 .dispBlock{
     display: block
 }
+
+.gridListMain {
+    display:flex;
+   
+     justify-content: center;
+     align-items: center;
+    margin-left : 150px;
+    margin-right : 150px;
+    transform: translateZ(0);
+    cursor: pointer;
+    border: 1px solid rgba(0,0,0,.3);
+ 
+    
+}
+.bluecColor{
+    color:blue;
+}
