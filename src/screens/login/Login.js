@@ -24,7 +24,7 @@ class Login extends Component {
         this.state = {
             userNameRequired: 'dispNone',
             passwordRequired: 'dispNone',
-            usernamePasswordRequired: 'dispNone',
+            credentialValidation: 'dispNone',
             userName: "",
             password: "",
             loggedIn: false
@@ -37,6 +37,25 @@ class Login extends Component {
 
         this.state.userName === "" ? this.setState({ userNameRequired: "dispBlock" }) : this.setState({ userNameRequired: "dispNone" });
         this.state.password === "" ? this.setState({ passwordRequired: "dispBlock" }) : this.setState({ passwordRequired: "dispNone" });
+        // Check whether credentails are entered correct or not and do action based on result...
+
+        if (this.state.userName !== "" && this.state.password !== "") {
+            if (this.state.userName === this.username && this.state.password === this.password) {
+                this.setState({
+                    credentialValidation: "dispNone",
+                })
+            }
+            else {
+                this.setState({
+                    credentialValidation: "dispBlock",
+                })
+            }
+        }
+        else {
+            this.setState({
+                credentialValidation: "dispNone",
+            })
+        }
 
         /*
         if (this.state.userName === loginUsername && this.state.password === loginPassword) {
@@ -104,7 +123,7 @@ class Login extends Component {
                                 <FormHelperText className={this.state.passwordRequired}>
                                     <span className="red">required</span>
                                 </FormHelperText>
-                                <FormHelperText className={this.state.usernamePasswordRequired}>
+                                <FormHelperText className={this.state.credentialValidation} >
                                     <span className="red">Incorrect username and/or password</span>
                                 </FormHelperText>
                             </FormControl> <br /><br />
