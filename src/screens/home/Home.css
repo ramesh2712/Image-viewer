@@ -1,0 +1,61 @@
+.white{
+    color:white;
+    background: #c0c0c0;
+       
+    position: absolute;
+    top:4px;
+   right:80px;
+    border-radius: 4px;
+    width:300px;
+    height: 25px;
+    
+}
+.flex-container {
+    display: flex;
+}
+
+.app-header{
+    background:  #263238;
+    height: 36px;
+
+    color: white;
+}
+
+
+
+.profile-img{
+    position: fixed;
+    top:0px;
+    right:10px;
+    margin:2px;
+    width:25px;
+    border-radius: 20px;
+    border: 1px solid white;
+    
+
+}
+
+.dispNone{
+    display: none;
+}
+
+.dispBlock{
+    display: block
+}
+
+.gridListMain {
+    display:flex;
+   
+     justify-content: center;
+     align-items: center;
+    margin-left : 150px;
+    margin-right : 150px;
+    transform: translateZ(0);
+    cursor: pointer;
+    border: 1px solid rgba(0,0,0,.3);
+ 
+    
+}
+.bluecColor{
+    color:blue;
+}
