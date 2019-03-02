@@ -4,7 +4,6 @@
 
     color: white;
 }
-<<<<<<< HEAD
 .cardStyle {
     width: 380px;
     padding: 32px 32px 32px 32px;
@@ -26,31 +25,6 @@
 .dispNone{
     display : none;
 }
-=======
-
-.card-container{
-    position: absolute;
-    left:30%;
-    
-    right:auto;
-    
-    width:30%;
-}
-
-.btn-pointer{
-    cursor: pointer;
-}
-
-.red{
-    color:red;
-    font-weight: bold;
-}
-
-.dispNone{
-    display : none;
-}
-
->>>>>>> 99efbdec3238e587c5c4192d17e9a3a724b49521
 .dispBlock{
     display: block;
 }

@@ -4,18 +4,6 @@
        
     position: absolute;
     top:4px;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> homepage header done
-=======
-
->>>>>>> Working on conficts
-=======
-
->>>>>>> dfb5fe5c54e9ca9267872e6b5fe7bd6b9d1652fe
    right:80px;
     border-radius: 4px;
     width:300px;
@@ -45,19 +33,7 @@
     border-radius: 20px;
     border: 1px solid white;
     
-<<<<<<< HEAD
-}
 
-.dispNone{
-    display: none;
-}
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
-
->>>>>>> Working on conficts
 }
 
 .dispNone{
@@ -68,19 +44,6 @@
     display: block
 }
 
-<<<<<<< HEAD
-=======
-}
-
-.dispNone{
-    display: none;
-}
-
-.dispBlock{
-    display: block
-}
-
->>>>>>> dfb5fe5c54e9ca9267872e6b5fe7bd6b9d1652fe
 .gridListMain {
     display:flex;
    
@@ -96,12 +59,4 @@
 }
 .bluecColor{
     color:blue;
-<<<<<<< HEAD
->>>>>>> Home page posts display done
-=======
-.dispBlock{
-    display: block
->>>>>>> homepage header done
-=======
->>>>>>> dfb5fe5c54e9ca9267872e6b5fe7bd6b9d1652fe
 }
