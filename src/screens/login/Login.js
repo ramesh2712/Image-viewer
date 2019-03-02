@@ -46,14 +46,12 @@ const styles = theme => ({
     }
 });
 
-
-
-
-
 class Login extends Component {
     constructor() {
         super();
-
+        this.username = "upgrad"
+        this.password = "upgrad"
+        this.accessToken = "8661035776.d0fcd39.87fd934e04f84253aaf234d8bd4e4c65"
         this.state = {
             userNameRequired: 'dispNone',
             passwordRequired: 'dispNone',
