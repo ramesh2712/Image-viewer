@@ -10,41 +10,10 @@ import FormControl from '@material-ui/core/FormControl';
 import Typography from '@material-ui/core/Typography';
 import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
-import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import { Link } from 'react-router-dom';
 import Header from '../../common/header/Header';
-
-const styles = theme => ({
-    root: {
-        flexGrow: 1,
-        backgroundColor: theme.palette.background.paper
-    },
-    upcomingMoviesHeading: {
-        textAlign: 'center',
-        background: '#ff9999',
-        padding: '8px',
-        fontSize: '1rem'
-    },
-    gridListUpcomingMovies: {
-        flexWrap: 'nowrap',
-        transform: 'translateZ(0)',
-        width: '100%'
-    },
-    gridListMain: {
-        transform: 'translateZ(0)',
-        cursor: 'pointer'
-    },
-    formControl: {
-        margin: theme.spacing.unit,
-        minWidth: 240,
-        maxWidth: 240
-    },
-    title: {
-        color: theme.palette.primary.light,
-    }
-});
 
 class Login extends Component {
     constructor() {
@@ -58,24 +27,18 @@ class Login extends Component {
             usernamePasswordRequired: 'dispNone',
             userName: "",
             password: "",
-
             loggedIn: false
         }
-
-
     }
 
+    // This method is fired When user press Login Button .....
 
+    loginClickedHandler = () => {
 
-    loginClickHandler = () => {
-
-        let accessToken = "8661035776.d0fcd39.87fd934e04f84253aaf234d8bd4e4c65"
-
-        let loginUsername = "upgrad";
-        let loginPassword = "upgrad";
         this.state.userName === "" ? this.setState({ userNameRequired: "dispBlock" }) : this.setState({ userNameRequired: "dispNone" });
         this.state.password === "" ? this.setState({ passwordRequired: "dispBlock" }) : this.setState({ passwordRequired: "dispNone" });
 
+        /*
         if (this.state.userName === loginUsername && this.state.password === loginPassword) {
             let dataLogin = null;
             let xhrLogin = new XMLHttpRequest();
@@ -102,19 +65,23 @@ class Login extends Component {
         } else if (this.state.userName !== "" && this.state.password !== "") {
             this.setState({ usernamePasswordRequired: "dispBlock" });
         }
-
+*/
         //this.props.history.push('/Home/');
     }
 
     usernameChangeHandler = (e) => {
-        this.setState({ userName: e.target.value });
+        this.setState({
+            userName: e.target.value
+        });
     }
 
     passwordChangeHandler = (e) => {
-        this.setState({ password: e.target.value })
+        this.setState({
+            password: e.target.value
+        })
     }
+
     render() {
-        const { classes } = this.props;
         return (
             <div>
                 <Header />
@@ -128,23 +95,21 @@ class Login extends Component {
                                 <InputLabel htmlFor="username"> Username </InputLabel>
                                 <Input id="username" type="text" username={this.state.userName} onChange={this.usernameChangeHandler} />
                                 <FormHelperText className={this.state.userNameRequired}>
-                                    <span className="red">Required</span>
+                                    <span className="red">required</span>
                                 </FormHelperText>
                             </FormControl> <br /><br />
                             <FormControl required className="formControl">
                                 <InputLabel htmlFor="password"> Password </InputLabel>
                                 <Input id="password" type="password" password={this.state.password} onChange={this.passwordChangeHandler} />
                                 <FormHelperText className={this.state.passwordRequired}>
-                                    <span className="red">Required</span>
+                                    <span className="red">required</span>
                                 </FormHelperText>
                                 <FormHelperText className={this.state.usernamePasswordRequired}>
                                     <span className="red">Incorrect username and/or password</span>
                                 </FormHelperText>
                             </FormControl> <br /><br />
                             <div className="marginTop btn-pointer">
-                                <Link to="/home"> 
-                                     <Button variant="contained" color="primary"  onClick={this.loginClickHandler}>LOGIN</Button>
-                                </Link>
+                                <Button variant="contained" color="primary" onClick={this.loginClickedHandler}>LOGIN</Button>
                             </div>
                         </CardContent>
                     </Card>
@@ -152,7 +117,5 @@ class Login extends Component {
             </div>
         )
     }
-
 }
-
-export default withStyles(styles)(Login);
+export default Login;
