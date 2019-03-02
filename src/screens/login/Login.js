@@ -34,58 +34,32 @@ class Login extends Component {
     // This method is fired When user press Login Button .....
 
     loginClickedHandler = () => {
-
+        // Check for empty fields...
         this.state.userName === "" ? this.setState({ userNameRequired: "dispBlock" }) : this.setState({ userNameRequired: "dispNone" });
         this.state.password === "" ? this.setState({ passwordRequired: "dispBlock" }) : this.setState({ passwordRequired: "dispNone" });
         // Check whether credentails are entered correct or not and do action based on result...
-
         if (this.state.userName !== "" && this.state.password !== "") {
             if (this.state.userName === this.username && this.state.password === this.password) {
+                // Login successfully 
                 this.setState({
-                    credentialValidation: "dispNone",
+                    credentialValidation: "dispNone"
                 })
+                // Store Access-Token in Session-Storage ...
+                sessionStorage.setItem('access-token', this.accessToken);
+                // Display Home Page ....
+                //this.props.history.push('/Home');
             }
             else {
                 this.setState({
-                    credentialValidation: "dispBlock",
+                    credentialValidation: "dispBlock"
                 })
             }
         }
         else {
             this.setState({
-                credentialValidation: "dispNone",
+                credentialValidation: "dispNone"
             })
         }
-
-        /*
-        if (this.state.userName === loginUsername && this.state.password === loginPassword) {
-            let dataLogin = null;
-            let xhrLogin = new XMLHttpRequest();
-            let that = this;
-
-
-            xhrLogin.addEventListener("readystatechange", function () {
-                if (this.readyState === 4) {
-                    sessionStorage.setItem("access-token", accessToken);
-                    that.setState({
-                        loggedIn: true
-                    });
-
-                }
-            });
-
-            xhrLogin.open("POST", "this.props.baseUrl + users/self/?access_token=" + accessToken);
-
-            xhrLogin.setRequestHeader("Content-Type", "application/json");
-            xhrLogin.setRequestHeader("Cache-Control", "no-cache");
-            xhrLogin.send(dataLogin);
-
-
-        } else if (this.state.userName !== "" && this.state.password !== "") {
-            this.setState({ usernamePasswordRequired: "dispBlock" });
-        }
-*/
-        //this.props.history.push('/Home/');
     }
 
     usernameChangeHandler = (e) => {
@@ -123,9 +97,9 @@ class Login extends Component {
                                 <FormHelperText className={this.state.passwordRequired}>
                                     <span className="red">required</span>
                                 </FormHelperText>
-                                <FormHelperText className={this.state.credentialValidation} >
+                                <div className={this.state.credentialValidation + " marginTop"} >
                                     <span className="red">Incorrect username and/or password</span>
-                                </FormHelperText>
+                                </div>
                             </FormControl> <br /><br />
                             <div className="marginTop btn-pointer">
                                 <Button variant="contained" color="primary" onClick={this.loginClickedHandler}>LOGIN</Button>
