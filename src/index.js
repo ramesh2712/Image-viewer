@@ -2,11 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import './common/common.css';
 =======
 import App from './App';
 import Login from './screens/login/Login';
 >>>>>>> homepage header done
+=======
+import App from './App';
+import Login from './screens/login/Login';
+>>>>>>> 99efbdec3238e587c5c4192d17e9a3a724b49521
 import * as serviceWorker from './serviceWorker';
 import Controller from './screens/Controller';
 

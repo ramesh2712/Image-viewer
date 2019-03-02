@@ -11,7 +11,10 @@ import MenuList from '@material-ui/core/MenuList';
 import Divider from '@material-ui/core/Divider';
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 99efbdec3238e587c5c4192d17e9a3a724b49521
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
@@ -27,7 +30,10 @@ import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
+<<<<<<< HEAD
 >>>>>>> Home page posts display done
+=======
+>>>>>>> 99efbdec3238e587c5c4192d17e9a3a724b49521
 
 const styles = theme => ({
     button: {
@@ -108,7 +114,10 @@ class Home extends Component {
         let xhr = new XMLHttpRequest();
         let that = this;
         xhr.addEventListener("readystatechange", function () {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 99efbdec3238e587c5c4192d17e9a3a724b49521
             if (this.readyState === 4) {
 
                 that.setState({
@@ -122,7 +131,10 @@ class Home extends Component {
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.withCredentials = false;
         xhr.send(data);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 99efbdec3238e587c5c4192d17e9a3a724b49521
         let dataPosts = null;
         let xhrPosts = new XMLHttpRequest();
 
@@ -167,15 +179,25 @@ class Home extends Component {
             <div className="app-header">
                 <header className="app-header">
                     <img src={logo} alt="logo" />
+<<<<<<< HEAD
+=======
+
+>>>>>>> 99efbdec3238e587c5c4192d17e9a3a724b49521
                     <span className="white"><img src={search} />
                         <Input type="text" disableUnderline={true} placeholder="Search.." onChange={this.searchCaption} />
                         <IconButton className={classes.button} onClick={this.onClickProfileIcon}> <img className="profile-img" src={this.state.data.profile_picture} />
                         </IconButton>
+<<<<<<< HEAD
                     </span>
 <<<<<<< HEAD
 =======
 
 >>>>>>> Home page posts display done
+=======
+
+                    </span>
+
+>>>>>>> 99efbdec3238e587c5c4192d17e9a3a724b49521
                 </header>
                 <span className={this.state.menuLogo}>
                     <MenuList className={classes.menuPopup} disableUnderline="true">
@@ -186,7 +208,10 @@ class Home extends Component {
                     </MenuList>
                 </span>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 99efbdec3238e587c5c4192d17e9a3a724b49521
 
                 <div className="gridListMain">
                     {this.state.inputValue === "" && 
@@ -240,7 +265,10 @@ class Home extends Component {
 
                 </div>
 
+<<<<<<< HEAD
 >>>>>>> Home page posts display done
+=======
+>>>>>>> 99efbdec3238e587c5c4192d17e9a3a724b49521
             </div>
 
 
@@ -252,5 +280,9 @@ class Home extends Component {
 
     }
 }
+<<<<<<< HEAD
 
 export default withStyles(styles)(Home);
+=======
+export default withStyles(styles)(Home);
+>>>>>>> 99efbdec3238e587c5c4192d17e9a3a724b49521
