@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import logo from '../../assets/logo.png';
-import search from '../../assets/search.svg';
 import './Home.css';
 import Input from '@material-ui/core/Input';
 
@@ -51,7 +50,7 @@ class Home extends Component {
                 <header className="app-header">
                     <img src={logo} alt="logo" />
 
-                    <span className="white"><img src={search} />
+                    <span className="white">
                         <Input type="text" className="inputText" disableUnderline={true} placeholder="Search.." />
 
                     </span>

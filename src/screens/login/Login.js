@@ -14,6 +14,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import { Link } from 'react-router-dom';
+import Header from '../../common/header/Header';
 
 const styles = theme => ({
     root: {
@@ -118,9 +119,7 @@ class Login extends Component {
         const { classes } = this.props;
         return (
             <div>
-                <header className="app-header">
-                    <img src={logo} alt="logo" />
-                </header>
+                <Header/>
                 <div className="card-container">
                     <Card>
                         <CardContent>
