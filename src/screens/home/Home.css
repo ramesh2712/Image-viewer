@@ -10,19 +10,24 @@
     height: 25px;
     
 }
+.cardStyle1 {
+    width: 500px;
+    margin: auto;
+    text-align: left;
+    justify-content:'space-between';
+}
+.marginTopGrid {
+    margin-top: 16px;
+justify-content:  center;
+    
+}
 .flex-container {
     display: flex;
 }
 
-.app-header{
-    background:  #263238;
-    height: 36px;
-
-    color: white;
+.flex-container>div {
+    margin: 16px;
 }
-
-
-
 
 .profile-img{
     position: fixed;
@@ -32,30 +37,12 @@
     width:25px;
     border-radius: 20px;
     border: 1px solid white;
-    
-
 }
-
 .dispNone{
     display: none;
 }
-
 .dispBlock{
     display: block
-}
-
-.gridListMain {
-    display:flex;
-   
-     justify-content: center;
-     align-items: center;
-    margin-left : 150px;
-    margin-right : 150px;
-    transform: translateZ(0);
-    cursor: pointer;
-    border: 1px solid rgba(0,0,0,.3);
- 
-    
 }
 .bluecColor{
     color:blue;

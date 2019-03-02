@@ -42,7 +42,7 @@ class Login extends Component {
                 // Store Access-Token in Session-Storage ...
                 sessionStorage.setItem('access-token', this.accessToken);
                 // Display Home Page ....
-                //this.props.history.push('/Home');
+                this.props.history.push('/Home');
             }
             else {
                 this.setState({

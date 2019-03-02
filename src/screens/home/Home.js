@@ -4,12 +4,9 @@ import search from '../../assets/search.svg';
 import likesnum from '../../assets/likesnum.png';
 import './Home.css';
 import { withStyles } from '@material-ui/core/styles';
-
-
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import Divider from '@material-ui/core/Divider';
-
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
@@ -19,14 +16,19 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import Avatar from '@material-ui/core/Avatar';
-
 import TextField from '@material-ui/core/TextField';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
+import Header from '../../common/header/Header';
 
 const styles = theme => ({
+    root: {
+        flexGrow: 1,
+        backgroundColor: theme.palette.background.paper
+    },
+
     button: {
         margin: theme.spacing.unit,
         position: "fixed",
@@ -61,18 +63,21 @@ const styles = theme => ({
         minWidth: 20,
         maxWidth: 100
     },
-    gridListMain1: {
+
+    gridListMain: {
+        
         display: "flex",
         transform: 'translateZ(0)',
         cursor: 'pointer',
-        border: "1px solid rgba(0,0,0,.3)"
-
+        border: "1px solid rgba(0,0,0,.3)",
+        padding: theme.spacing.unit * 2
     },
-
+    control: {
+        padding: theme.spacing.unit * 2,
+    },
     imgSize: {
         width: 250,
         height: 200
-
     },
 
     title: {
@@ -91,7 +96,7 @@ class Home extends Component {
             data: [],
             dataPosts: [],
             inputValue: "",
-            gridRequired : "dispBlock"
+            gridRequired: "dispBlock"
 
         }
     }
@@ -101,23 +106,16 @@ class Home extends Component {
     }
 
     componentWillMount() {
-        let data = null;
-        let xhr = new XMLHttpRequest();
-        let that = this;
-        xhr.addEventListener("readystatechange", function () {
-            if (this.readyState === 4) {
-
-                that.setState({
-                    data: JSON.parse(this.responseText).data
-                });
-            }
-        });
-
-        xhr.open("GET", this.props.baseUrl + "users/self/?access_token=8661035776.d0fcd39.87fd934e04f84253aaf234d8bd4e4c65");
-        xhr.setRequestHeader("Cache-Control", "no-cache");
-        xhr.setRequestHeader("Content-Type", "application/json");
-        xhr.withCredentials = false;
-        xhr.send(data);
+        let access_token = sessionStorage.getItem('access-token')
+        console.log(access_token)
+        if (access_token) {
+            this.callApiToRetriveProfileDetail()
+            this.callApiToRetriveUserMediaPostDetail()
+        }
+        else {
+            this.props.history.push("/");
+        }
+        /*
 
         let dataPosts = null;
         let xhrPosts = new XMLHttpRequest();
@@ -145,16 +143,100 @@ class Home extends Component {
         xhrPosts.setRequestHeader("Content-Type", "application/json");
         xhrPosts.withCredentials = false;
         xhrPosts.send(dataPosts);
-
+*/
     }
 
+    callApiToRetriveProfileDetail() {
+        let access_token = sessionStorage.getItem('access-token')
+        let data = null;
+        let xhr = new XMLHttpRequest();
+
+        xhr.addEventListener("readystatechange", function () {
+            if (this.readyState === 4) {
+                console.log(JSON.parse(this.responseText))
+                /*
+                that.setState({
+                    data: JSON.parse(this.responseText).data
+                });*/
+            }
+        });
+
+        xhr.open("GET", this.props.baseUrl + "users/self/?access_token=" + access_token);
+        //  xhr.setRequestHeader("Cache-Control", "no-cache");
+        xhr.send(data);
+    }
+    callApiToRetriveUserMediaPostDetail() {
+        let access_token = sessionStorage.getItem('access-token')
+        let dataPosts = null;
+        let xhrPosts = new XMLHttpRequest();
+        let that = this
+
+        xhrPosts.addEventListener("readystatechange", function () {
+
+            if (this.readyState === 4) {
+                that.setState({
+                    dataPosts: JSON.parse(this.responseText).data
+                })
+                console.log("Media Posts")
+                console.log(that.state.dataPosts)
+                /*
+               var data = myObject.data;
+               //console.log(data);
+
+               that.setState({
+                   dataPosts: data
+               });
+               // console.log(that.state.dataPosts)
+               //  console.log(that.state.dataPosts[1].images.low_resolution.url)
+               console.log(that.state.dataPosts[1].caption.text)
+               console.log(that.state.dataPosts[1].tags)*/
+            }
+
+        });
+        xhrPosts.open("GET", this.props.baseUrl + "users/self/media/recent?access_token=" + access_token);
+        // xhrPosts.setRequestHeader("Cache-Control", "no-cache");
+        xhrPosts.send(dataPosts);
+    }
     searchCaption = (e) => {
         this.setState({ inputValue: e.target.value });
-        this.setState({gridRequired:'dispNone'});
-
-
-
+        this.setState({ gridRequired: 'dispNone' });
     }
+    convertDate = (datePost) => {
+       var date = parseInt(datePost);
+       var d = new Date(parseInt(date*1000, 10));
+       var ds = d.toLocaleString();
+       return ds;
+    }
+    render() {
+        const { classes } = this.props;
+        return (
+            <div>
+                <Header />
+                <div className="flex-container">
+                    <GridList cellHeight={600} cols={2} className={classes.gridListMain}>
+                    {
+                        this.state.dataPosts.map(post => (
+                            <GridListTile key={"grid_" + post.id} className="marginTop">
+                                <Card className="cardStyle1">
+                                <CardHeader
+                                        avatar={
+                                            <Avatar alt="Recipe" src={post.user.profile_picture} className={classes.avatar} />
+                                        }
+                                        title={post.user.username}
+                                        subheader={this.convertDate(post.created_time)} />
+                                    <CardContent>
+
+                                    </CardContent>
+                                </Card>
+                            </GridListTile>
+                        ))
+                    }
+                </GridList>
+            </div>
+            </div>
+        );
+    }
+    /*
     render() {
         const { classes } = this.props;
         return (
@@ -242,7 +324,7 @@ class Home extends Component {
 
         )
 
-    }
+    }*/
 }
 
 export default withStyles(styles)(Home);
