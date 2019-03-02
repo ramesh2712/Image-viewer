@@ -15,11 +15,13 @@
     margin: auto;
     text-align: left;
     justify-content:'space-between';
+    padding : 10px;
+}
+.card-header {
+    font-weight: bold;
 }
 .marginTopGrid {
-    margin-top: 16px;
-justify-content:  center;
-    
+    margin-top: 16px;    
 }
 .flex-container {
     display: flex;
@@ -27,6 +29,11 @@ justify-content:  center;
 
 .flex-container>div {
     margin: 16px;
+}
+.movie-poster {
+    height: auto;
+    width: 100%;
+    margin: auto;
 }
 
 .profile-img{

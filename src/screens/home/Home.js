@@ -65,7 +65,7 @@ const styles = theme => ({
     },
 
     gridListMain: {
-        
+
         display: "flex",
         transform: 'translateZ(0)',
         cursor: 'pointer',
@@ -202,11 +202,12 @@ class Home extends Component {
         this.setState({ gridRequired: 'dispNone' });
     }
     convertDate = (datePost) => {
-       var date = parseInt(datePost);
-       var d = new Date(parseInt(date*1000, 10));
-       var ds = d.toLocaleString();
-       return ds;
+        var date = parseInt(datePost);
+        var d = new Date(parseInt(date * 1000, 10));
+        var ds = d.toLocaleString();
+        return ds;
     }
+
     render() {
         const { classes } = this.props;
         return (
@@ -214,25 +215,25 @@ class Home extends Component {
                 <Header />
                 <div className="flex-container">
                     <GridList cellHeight={600} cols={2} className={classes.gridListMain}>
-                    {
-                        this.state.dataPosts.map(post => (
-                            <GridListTile key={"grid_" + post.id} className="marginTop">
-                                <Card className="cardStyle1">
-                                <CardHeader
-                                        avatar={
-                                            <Avatar alt="Recipe" src={post.user.profile_picture} className={classes.avatar} />
-                                        }
-                                        title={post.user.username}
-                                        subheader={this.convertDate(post.created_time)} />
-                                    <CardContent>
-
-                                    </CardContent>
-                                </Card>
-                            </GridListTile>
-                        ))
-                    }
-                </GridList>
-            </div>
+                        {
+                            this.state.dataPosts.map(post => (
+                                <GridListTile key={"grid_" + post.id} className="marginTop">
+                                    <Card className="cardStyle1">
+                                        <CardHeader
+                                            avatar={
+                                                <Avatar alt="Recipe" src={post.user.profile_picture} className={classes.avatar} />
+                                            }
+                                            title={post.user.username}
+                                            subheader={this.convertDate(post.created_time)} />
+                                        <CardContent>
+                                            <img src={post.images.low_resolution.url} className="movie-poster " alt={post.images.low_resolution.url} />
+                                        </CardContent>
+                                    </Card>
+                                </GridListTile>
+                            ))
+                        }
+                    </GridList>
+                </div>
             </div>
         );
     }
