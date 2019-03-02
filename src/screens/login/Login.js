@@ -1,13 +1,28 @@
 import React, { Component } from 'react';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import './Login.css';
 =======
+=======
+<<<<<<< HEAD
+import './Login.css';
+=======
+=======
+>>>>>>> 99efbdec3238e587c5c4192d17e9a3a724b49521
+>>>>>>> dfb5fe5c54e9ca9267872e6b5fe7bd6b9d1652fe
 import ReactDOM from 'react-dom';
 import './Login.css';
 import Home from '../home/Home'
 
 import logo from '../../assets/logo.png';
+<<<<<<< HEAD
 >>>>>>> homepage header done
+=======
+<<<<<<< HEAD
+>>>>>>> homepage header done
+=======
+>>>>>>> 99efbdec3238e587c5c4192d17e9a3a724b49521
+>>>>>>> dfb5fe5c54e9ca9267872e6b5fe7bd6b9d1652fe
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import FormControl from '@material-ui/core/FormControl';
@@ -15,10 +30,19 @@ import Typography from '@material-ui/core/Typography';
 import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> dfb5fe5c54e9ca9267872e6b5fe7bd6b9d1652fe
 import Button from '@material-ui/core/Button';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import Header from '../../common/header/Header';
 =======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 99efbdec3238e587c5c4192d17e9a3a724b49521
+>>>>>>> dfb5fe5c54e9ca9267872e6b5fe7bd6b9d1652fe
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import FormHelperText from '@material-ui/core/FormHelperText';
@@ -57,12 +81,23 @@ const styles = theme => ({
 
 
 
+<<<<<<< HEAD
 >>>>>>> homepage header done
+=======
+<<<<<<< HEAD
+>>>>>>> homepage header done
+=======
+>>>>>>> 99efbdec3238e587c5c4192d17e9a3a724b49521
+>>>>>>> dfb5fe5c54e9ca9267872e6b5fe7bd6b9d1652fe
 
 class Login extends Component {
     constructor() {
         super();
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> dfb5fe5c54e9ca9267872e6b5fe7bd6b9d1652fe
         this.username = "upgrad"
         this.password = "upgrad"
         this.accessToken = "8661035776.d0fcd39.87fd934e04f84253aaf234d8bd4e4c65"
@@ -158,6 +193,11 @@ class Login extends Component {
 }
 export default Login;
 =======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 99efbdec3238e587c5c4192d17e9a3a724b49521
+>>>>>>> dfb5fe5c54e9ca9267872e6b5fe7bd6b9d1652fe
 
         this.state = {
             userNameRequired: 'dispNone',
@@ -271,5 +311,14 @@ export default Login;
 
 }
 
+<<<<<<< HEAD
 export default withStyles(styles)(Login);
 >>>>>>> homepage header done
+=======
+<<<<<<< HEAD
+export default withStyles(styles)(Login);
+>>>>>>> homepage header done
+=======
+export default withStyles(styles)(Login);
+>>>>>>> 99efbdec3238e587c5c4192d17e9a3a724b49521
+>>>>>>> dfb5fe5c54e9ca9267872e6b5fe7bd6b9d1652fe
