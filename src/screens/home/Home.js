@@ -214,7 +214,7 @@ class Home extends Component {
             <div>
                 <Header />
                 <div className="flex-container">
-                    <GridList cellHeight={600} cols={2} className={classes.gridListMain}>
+                    <GridList cellHeight={700} cols={2} className={classes.gridListMain}>
                         {
                             this.state.dataPosts.map(post => (
                                 <GridListTile key={"grid_" + post.id} className="marginTop">
@@ -226,7 +226,22 @@ class Home extends Component {
                                             title={post.user.username}
                                             subheader={this.convertDate(post.created_time)} />
                                         <CardContent>
-                                            <img src={post.images.low_resolution.url} className="movie-poster " alt={post.images.low_resolution.url} />
+                                            <img src={post.images.low_resolution.url} className="card-poster" alt={post.images.low_resolution.url} />
+                                            <div className="divider-line">
+                                                <Divider variant='fullWidth' light={true} />
+                                            </div>
+                                            <Typography>
+                                                {(post.caption.text).slice(0, (post.caption.text).indexOf("#"))}
+                                            </Typography>
+                                            {
+                                                <Typography>
+                                                    {
+                                                        post.tags.map( tag => (
+                                                            <span className="bluecColor">{'#' + tag + " "}</span>
+                                                        ))
+                                                    }
+                                                </Typography>
+                                            }
                                         </CardContent>
                                     </Card>
                                 </GridListTile>
