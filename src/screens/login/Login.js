@@ -143,8 +143,10 @@ class Login extends Component {
                                     <span className="red">Incorrect username and/or password</span>
                                 </FormHelperText>
                             </FormControl> <br /><br />
-                            <div className="marginTop">
-                                <Link to="/home"> <Button variant="contained" color="primary" className="btn-pointer marginTop" onClick={this.loginClickHandler}>LOGIN</Button></Link>
+                            <div className="marginTop btn-pointer">
+                                <Link to="/home"> 
+                                     <Button variant="contained" color="primary"  onClick={this.loginClickHandler}>LOGIN</Button>
+                                </Link>
                             </div>
                         </CardContent>
                     </Card>
