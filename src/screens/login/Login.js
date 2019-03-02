@@ -94,13 +94,13 @@ class Login extends Component {
                 }
             });
 
-            xhrLogin.open("POST", "this.props.baseUrl + users/self/?access_token="+accessToken);
-            
+            xhrLogin.open("POST", "this.props.baseUrl + users/self/?access_token=" + accessToken);
+
             xhrLogin.setRequestHeader("Content-Type", "application/json");
             xhrLogin.setRequestHeader("Cache-Control", "no-cache");
             xhrLogin.send(dataLogin);
 
-          
+
         } else if (this.state.userName !== "" && this.state.password !== "") {
             this.setState({ usernamePasswordRequired: "dispBlock" });
         }
@@ -119,46 +119,37 @@ class Login extends Component {
         const { classes } = this.props;
         return (
             <div>
-                <Header/>
-                <div className="card-container">
-                    <Card>
+                <Header />
+                <div>
+                    <Card className="cardStyle marginTop" >
                         <CardContent>
-                            <FormControl className={classes.formControl}>
-                                <Typography className={classes.title} color="textSecondary">
-                                    LOGIN
-                                    </Typography>
-                            </FormControl>
-                            <FormControl required>
+                            <Typography variant="headline" component="h1">
+                                LOGIN
+                            </Typography><br />
+                            <FormControl required className="formControl">
                                 <InputLabel htmlFor="username"> Username </InputLabel>
                                 <Input id="username" type="text" username={this.state.userName} onChange={this.usernameChangeHandler} />
                                 <FormHelperText className={this.state.userNameRequired}>
                                     <span className="red">Required</span>
                                 </FormHelperText>
-                            </FormControl>
-                            <br /><br />
-                            <FormControl required>
+                            </FormControl> <br /><br />
+                            <FormControl required className="formControl">
                                 <InputLabel htmlFor="password"> Password </InputLabel>
                                 <Input id="password" type="password" password={this.state.password} onChange={this.passwordChangeHandler} />
                                 <FormHelperText className={this.state.passwordRequired}>
                                     <span className="red">Required</span>
                                 </FormHelperText>
-
                                 <FormHelperText className={this.state.usernamePasswordRequired}>
                                     <span className="red">Incorrect username and/or password</span>
                                 </FormHelperText>
-                            </FormControl>
-                            <br /><br />
-                            <FormControl>
-                                <Link to="/home"> <Button variant="contained" color="primary" className="btn-pointer" onClick={this.loginClickHandler}>LOGIN</Button></Link>
-                            </FormControl>
+                            </FormControl> <br /><br />
+                            <div className="marginTop">
+                                <Link to="/home"> <Button variant="contained" color="primary" className="btn-pointer marginTop" onClick={this.loginClickHandler}>LOGIN</Button></Link>
+                            </div>
                         </CardContent>
-
                     </Card>
                 </div>
-
-
             </div>
-
         )
     }
 
