@@ -1,0 +1,31 @@
+.white{
+    color:white;
+    background: #c0c0c0;
+       
+    position: absolute;
+    top:4px;
+   right:40px;
+    border-radius: 4px;
+    width:300px;
+    height: 25px;
+    border:0px;
+}
+
+.app-header{
+    background:  #263238;
+    height: 36px;
+
+    color: white;
+}
+
+.profile-img{
+    position:absolute;
+    top:4px;
+    right:0px;
+    margin:2px;
+    width:25px;
+    border-radius: 20px;
+    border: 1px solid white;
+    
+
+}

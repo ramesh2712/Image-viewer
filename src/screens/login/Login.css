@@ -1,0 +1,30 @@
+.app-header{
+    background:  #263238;
+    height: 36px;
+
+    color: white;
+}
+.cardStyle {
+    width: 380px;
+    padding: 32px 32px 32px 32px;
+    margin: auto;
+    text-align: left;
+}
+.marginTop {
+    margin-top: 16px;
+}
+.formControl {
+    width: 340px;
+}
+.btn-pointer{
+    cursor: pointer;
+}
+.red{
+    color:red;
+}
+.dispNone{
+    display : none;
+}
+.dispBlock{
+    display: block;
+}
