@@ -8,6 +8,7 @@ import Icon from '@material-ui/core/Icon';
 import Edit from '@material-ui/icons/Edit'
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
+import { Modal, Typography } from '@material-ui/core';
 
 const styles = theme => ({
     fab: {
@@ -30,6 +31,16 @@ const styles = theme => ({
     }
 });
 
+const customStyles = {
+    content: {
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)'
+    }
+}
 class Profile extends Component {
 
     constructor() {
@@ -41,7 +52,8 @@ class Profile extends Component {
             numberOfFollowers: 0,
             numberOfFollowsBy: 0,
             fullname: '',
-            dataPosts: []
+            dataPosts: [],
+            modalIsOpen: false
         }
     }
     componentWillMount() {
@@ -98,6 +110,13 @@ class Profile extends Component {
         xhrPosts.send(dataPosts);
     }
 
+    openModalHandler = () => {
+        console.log('modal is open')
+        this.setState({ modalIsOpen: true })
+    }
+    closeModal = () => {
+        this.setState({ modalIsOpen: false })
+    }
     render() {
         const { classes } = this.props;
         return (
@@ -119,20 +138,27 @@ class Profile extends Component {
                         <div >
                             <span className="fullname-style">{this.state.fullname} </span>
                             <Fab color="secondary" aria-label="Edit" className={classes.fab}>
-                                <Icon>
+                                <Icon onClick={this.openModalHandler}>
                                     <Edit /></Icon>
                             </Fab>
                         </div>
                     </div>
                 </div>
+                <Modal ariaHideApp={false}
+                                isOpen={this.state.modalIsOpen}
+                                contentLabel="Login"
+                                onRequestClose={this.closeModal}
+                                style={customStyles}>
+                            </Modal>
+                
                 <div className={classes.root}>
                     <GridList cellHeight={320} className={classes.gridList} cols={3}>
                         {
                             this.state.dataPosts.map(post => (
-                             <GridListTile key={"image_" + post.id}>
-                                <img src={post.images.low_resolution.url} alt={post.link} />
-                            </GridListTile>
-                         ))
+                                <GridListTile key={"image_" + post.id}>
+                                    <img src={post.images.low_resolution.url} alt={post.link} />
+                                </GridListTile>
+                            ))
                         }
                     </GridList>
                 </div>
