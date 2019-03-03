@@ -4,8 +4,6 @@ import search from '../../assets/search.svg';
 import likesnum from '../../assets/likesnum.png';
 import './Home.css';
 import { withStyles } from '@material-ui/core/styles';
-import MenuItem from '@material-ui/core/MenuItem';
-import MenuList from '@material-ui/core/MenuList';
 import Divider from '@material-ui/core/Divider';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -14,9 +12,7 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
-import GridListTileBar from '@material-ui/core/GridListTileBar';
 import Avatar from '@material-ui/core/Avatar';
-import TextField from '@material-ui/core/TextField';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
@@ -79,7 +75,6 @@ const styles = theme => ({
         width: 250,
         height: 200
     },
-
     title: {
         color: theme.palette.primary,
         fontSize: 15,
@@ -191,7 +186,7 @@ class Home extends Component {
         const { classes } = this.props;
         return (
             <div>
-                <Header profilePhoto={this.state.profilePhoto}/>
+                <Header profilePhoto={this.state.profilePhoto} />
                 <div className="flex-container">
                     <GridList cellHeight={800} cols={2} className={classes.gridListMain}>
                         {
