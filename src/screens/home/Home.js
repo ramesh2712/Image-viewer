@@ -81,14 +81,17 @@ const styles = theme => ({
     },
 
     title: {
-        color: theme.palette.primary.light,
+        color: theme.palette.primary,
+        fontSize: 15,
+        fontWeight: 'bold'
     }
 });
 class Home extends Component {
 
     constructor() {
         super();
-        this.comment = "";
+        this.post_id = ''
+        this.comment = ''
         this.state = {
             profilePhoto: "",
             posts: [],
@@ -98,6 +101,7 @@ class Home extends Component {
             dataPosts: [],
             inputValue: "",
             gridRequired: "dispBlock",
+            commentContainer: "dispNone",
         }
     }
 
@@ -170,12 +174,17 @@ class Home extends Component {
     onClickCommentHandler = (event) => {
         this.comment = event.target.value
     }
-    addCommentHandler = () => {
-        if (this.comment === ''){
-
+    addCommentHandler = (postId) => {
+        this.post_id = postId
+        if (this.comment === '') {
+            this.setState({
+                commentContainer : 'dispNone'
+            })
         }
         else {
-
+            this.setState({
+                commentContainer : 'comment-container'
+            })
         }
     }
     render() {
@@ -193,7 +202,7 @@ class Home extends Component {
                                             avatar={
                                                 <Avatar alt="Recipe" src={post.user.profile_picture} className={classes.avatar} />
                                             }
-                                            title={post.user.username}
+                                            title={<span className={classes.title}>{post.user.username}</span>}
                                             subheader={this.convertDate(post.created_time)} />
                                         <CardContent>
                                             <img src={post.images.standard_resolution.url} className="card-poster" alt={post.images.low_resolution.url} />
@@ -212,17 +221,30 @@ class Home extends Component {
                                                     }
                                                 </Typography>
                                             }
+                                            {
+                                                this.post_id === post.id &&
+                                                <div className={this.state.commentContainer}>
+                                                    <div className="confirmLeft">
+                                                        <span>{post.user.username + ": "}</span>
+                                                    </div>
+                                                    <div>
+                                                        <Typography>{this.comment}</Typography>
+                                                    </div>
+                                                </div>
+                                            }
+                                             <br />
+                                             
                                             <div className="comment-container">
                                                 <div>
                                                     <FormControl className="formControl">
                                                         <InputLabel htmlFor="comment">
                                                             Add a comment
                                                          </InputLabel>
-                                                        <Input id="comment" onChange={this.onClickCommentHandler} />
+                                                        <Input id="comment" onChange={this.onClickCommentHandler} comment={this.comment}/>
                                                     </FormControl>
                                                 </div>
                                                 <div className="marginApply">
-                                                    <Button variant="contained" onClick={this.addCommentHandler.bind(this)} color="primary">ADD</Button>
+                                                    <Button variant="contained" onClick={this.addCommentHandler.bind(this , post.id)} color="primary">ADD</Button>
                                                 </div>
                                             </div>
                                         </CardContent>

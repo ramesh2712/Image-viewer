@@ -49,6 +49,10 @@
 .marginApply {
     margin: 16px 0px 0px 16px;
 }
+.confirmLeft {
+    width: 22%;
+    font-weight: bold;
+  }  
 .comment-container {
     display: flex;
     margin-top: 16px;
