@@ -4,28 +4,65 @@
        
     position: absolute;
     top:4px;
-   right:40px;
+   right:80px;
     border-radius: 4px;
     width:300px;
     height: 25px;
-    border:0px;
+    
+}
+.cardStyle1 {
+    width: 500px;
+    margin: auto;
+    text-align: left;
+    justify-content:'space-between';
+    padding: 7px;
+}
+.divider-line {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.marginTopGrid {
+    margin-top: 16px;    
+}
+.flex-container {
+    display: flex;
 }
 
-.app-header{
-    background:  #263238;
-    height: 36px;
-
-    color: white;
+.flex-container>div {
+    margin: 16px;
+}
+.card-poster {
+    height: auto;
+    width: 100%;
+    margin: auto;
 }
 
 .profile-img{
-    position:absolute;
-    top:4px;
-    right:0px;
+    position: fixed;
+    top:0px;
+    right:10px;
     margin:2px;
     width:25px;
     border-radius: 20px;
     border: 1px solid white;
-    
-
+}
+.marginApply {
+    margin: 16px 0px 0px 16px;
+}
+.confirmLeft {
+    width: 22%;
+    font-weight: bold;
+  }  
+.comment-container {
+    display: flex;
+    margin-top: 16px;
+}
+.dispNone{
+    display: none;
+}
+.dispBlock{
+    display: block
+}
+.bluecColor{
+    color:blue;
 }
