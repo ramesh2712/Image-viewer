@@ -33,11 +33,6 @@ const styles = theme => ({
         width: 25
     },
 
-    dividerLine: {
-        width: 80,
-        align: "center"
-    },
-
     menuPopup: {
         background: "#D3D3D3",
         width: 120,
@@ -208,7 +203,7 @@ class Home extends Component {
                                                 {(post.caption.text).slice(0, (post.caption.text).indexOf("#"))}
                                             </Typography>
                                             {
-                                                <Typography>
+                                                <Typography >
                                                     {
                                                         post.tags.map(tag => (
                                                             <span className="bluecColor">{'#' + tag + " "}</span>

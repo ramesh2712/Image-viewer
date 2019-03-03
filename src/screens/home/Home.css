@@ -36,16 +36,6 @@
     width: 100%;
     margin: auto;
 }
-
-.profile-img{
-    position: fixed;
-    top:0px;
-    right:10px;
-    margin:2px;
-    width:25px;
-    border-radius: 20px;
-    border: 1px solid white;
-}
 .marginApply {
     margin: 16px 0px 0px 16px;
 }
@@ -65,4 +55,8 @@
 }
 .bluecColor{
     color:blue;
+}
+
+.username-bold {
+    font-weight: bold;
 }

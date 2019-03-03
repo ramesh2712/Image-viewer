@@ -16,7 +16,7 @@ const styles = theme => ({
         marginLeft: theme.spacing.unit * 2,
         float: 'right',
         width: 120,
-        background: "#DFDFE0",
+        background: "#DFDFE0"
     }
 });
 
@@ -62,7 +62,9 @@ class Header extends Component {
                     <div className={this.state.showMenuItem}>
                         <Paper className={classes.paper}>
                             <MenuList>
-                                <MenuItem onClick={this.myAccountHandler}>My account</MenuItem>
+                                 <Link to="/profile">
+                                    <MenuItem onClick={this.myAccountHandler}>My account</MenuItem>
+                                </Link>
                                 <Divider variant='middle' light={true} />
                                 <Link to="/">
                                     <MenuItem onClick={this.logoutHandler}>Logout</MenuItem>
