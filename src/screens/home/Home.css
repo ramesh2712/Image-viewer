@@ -46,6 +46,13 @@
     border-radius: 20px;
     border: 1px solid white;
 }
+.marginApply {
+    margin: 16px 0px 0px 16px;
+}
+.comment-container {
+    display: flex;
+    margin-top: 16px;
+}
 .dispNone{
     display: none;
 }

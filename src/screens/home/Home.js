@@ -88,6 +88,7 @@ class Home extends Component {
 
     constructor() {
         super();
+        this.comment = "";
         this.state = {
             profilePhoto: "",
             posts: [],
@@ -96,8 +97,7 @@ class Home extends Component {
             data: [],
             dataPosts: [],
             inputValue: "",
-            gridRequired: "dispBlock"
-
+            gridRequired: "dispBlock",
         }
     }
 
@@ -115,35 +115,6 @@ class Home extends Component {
         else {
             this.props.history.push("/");
         }
-        /*
-
-        let dataPosts = null;
-        let xhrPosts = new XMLHttpRequest();
-
-
-        xhrPosts.addEventListener("readystatechange", function () {
-            if (this.readyState === 4) {
-                var myObject = JSON.parse(this.responseText);
-                // console.log(myObject);
-                var data = myObject.data;
-                //console.log(data);
-
-                that.setState({
-                    dataPosts: data
-                });
-                // console.log(that.state.dataPosts)
-                //  console.log(that.state.dataPosts[1].images.low_resolution.url)
-                console.log(that.state.dataPosts[1].caption.text)
-                console.log(that.state.dataPosts[1].tags)
-            }
-
-        });
-        xhrPosts.open("GET", this.props.baseUrl + "users/self/media/recent?access_token=8661035776.d0fcd39.87fd934e04f84253aaf234d8bd4e4c65");
-        xhrPosts.setRequestHeader("Cache-Control", "no-cache");
-        xhrPosts.setRequestHeader("Content-Type", "application/json");
-        xhrPosts.withCredentials = false;
-        xhrPosts.send(dataPosts);
-*/
     }
 
     callApiToRetriveProfileDetail() {
@@ -177,19 +148,8 @@ class Home extends Component {
                 that.setState({
                     dataPosts: JSON.parse(this.responseText).data
                 })
-                console.log("Media Posts")
-                console.log(that.state.dataPosts)
-                /*
-               var data = myObject.data;
-               //console.log(data);
-
-               that.setState({
-                   dataPosts: data
-               });
-               // console.log(that.state.dataPosts)
-               //  console.log(that.state.dataPosts[1].images.low_resolution.url)
-               console.log(that.state.dataPosts[1].caption.text)
-               console.log(that.state.dataPosts[1].tags)*/
+                console.log("Media Posts");
+                console.log(that.state.dataPosts);
             }
 
         });
@@ -207,14 +167,24 @@ class Home extends Component {
         var ds = d.toLocaleString();
         return ds;
     }
+    onClickCommentHandler = (event) => {
+        this.comment = event.target.value
+    }
+    addCommentHandler = () => {
+        if (this.comment === ''){
 
+        }
+        else {
+
+        }
+    }
     render() {
         const { classes } = this.props;
         return (
             <div>
                 <Header />
                 <div className="flex-container">
-                    <GridList cellHeight={700} cols={2} className={classes.gridListMain}>
+                    <GridList cellHeight={800} cols={2} className={classes.gridListMain}>
                         {
                             this.state.dataPosts.map(post => (
                                 <GridListTile key={"grid_" + post.id} className="marginTop">
@@ -226,7 +196,7 @@ class Home extends Component {
                                             title={post.user.username}
                                             subheader={this.convertDate(post.created_time)} />
                                         <CardContent>
-                                            <img src={post.images.low_resolution.url} className="card-poster" alt={post.images.low_resolution.url} />
+                                            <img src={post.images.standard_resolution.url} className="card-poster" alt={post.images.low_resolution.url} />
                                             <div className="divider-line">
                                                 <Divider variant='fullWidth' light={true} />
                                             </div>
@@ -236,12 +206,25 @@ class Home extends Component {
                                             {
                                                 <Typography>
                                                     {
-                                                        post.tags.map( tag => (
+                                                        post.tags.map(tag => (
                                                             <span className="bluecColor">{'#' + tag + " "}</span>
                                                         ))
                                                     }
                                                 </Typography>
                                             }
+                                            <div className="comment-container">
+                                                <div>
+                                                    <FormControl className="formControl">
+                                                        <InputLabel htmlFor="comment">
+                                                            Add a comment
+                                                         </InputLabel>
+                                                        <Input id="comment" onChange={this.onClickCommentHandler} />
+                                                    </FormControl>
+                                                </div>
+                                                <div className="marginApply">
+                                                    <Button variant="contained" onClick={this.addCommentHandler.bind(this)} color="primary">ADD</Button>
+                                                </div>
+                                            </div>
                                         </CardContent>
                                     </Card>
                                 </GridListTile>
