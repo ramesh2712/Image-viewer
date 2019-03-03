@@ -16,7 +16,7 @@ const styles = theme => ({
         marginLeft: theme.spacing.unit * 2,
         float: 'right',
         width: 120,
-        background: "#DFDFE0"
+        background: "#DFDFE0",
     }
 });
 
