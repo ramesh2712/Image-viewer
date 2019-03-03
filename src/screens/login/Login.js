@@ -72,7 +72,7 @@ class Login extends Component {
     render() {
         return (
             <div>
-                <Header />
+                <Header isProfileScreen={false}/>
                 <div>
                     <Card className="cardStyle marginTop" >
                         <CardContent>

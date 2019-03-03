@@ -81,7 +81,6 @@ class Header extends Component {
                                     <MenuItem onClick={this.myAccountHandler}>My account</MenuItem>
                                     <Divider variant='middle' light={true} />
                                 </Link>
-                                
                                 }
                                 <Link to="/">
                                     <MenuItem onClick={this.logoutHandler}>Logout</MenuItem>
