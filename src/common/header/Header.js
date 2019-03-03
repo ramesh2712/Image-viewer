@@ -36,6 +36,9 @@ class Header extends Component {
         }
     }
 
+    componentWillMount(){
+        console.log(this.props.isProfileScreen)
+    }
     onClickProfileIcon = () => {
         this.state.showMenuItem === 'dispNone' ? this.setState({ showMenuItem: 'dispBlock' }) : this.setState({ showMenuItem: 'dispNone' })
     }
@@ -46,12 +49,23 @@ class Header extends Component {
         this.state.showMenuItem === 'dispNone' ? this.setState({ showMenuItem: 'dispBlock' }) : this.setState({ showMenuItem: 'dispNone' })
         sessionStorage.clear();
     }
+   
     render() {
         const { classes } = this.props;
         return (
             <div>
                 <header className="app-header">
-                    <span className="logo">  Image Viewer </span> {
+                    {
+                        this.props.isProfileScreen === false &&
+                         <span className="logo">  Image Viewer </span> 
+                    }
+                    {
+                         this.props.isProfileScreen === true &&
+                         <Link to="/home">
+                             <span className="logo">  Image Viewer </span> 
+                         </Link>   
+                    }
+                    {
                         this.props.profilePhoto &&
                         <div>
                             <IconButton onClick={this.onClickProfileIcon} className="btn-pointer">

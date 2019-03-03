@@ -181,7 +181,7 @@ class Home extends Component {
         const { classes } = this.props;
         return (
             <div>
-                <Header profilePhoto={this.state.profilePhoto} />
+                <Header profilePhoto={this.state.profilePhoto} isProfileScreen={false}/>
                 <div className="flex-container">
                     <GridList cellHeight={800} cols={2} className={classes.gridListMain}>
                         {

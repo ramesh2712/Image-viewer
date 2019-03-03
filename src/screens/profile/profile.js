@@ -63,7 +63,7 @@ class Profile extends Component {
     render() {
         return (
             <div>
-                <Header profilePhoto={this.state.profilePhoto} />
+                <Header profilePhoto={this.state.profilePhoto} isProfileScreen={true} />
             </div>
         )
     }
