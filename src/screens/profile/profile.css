@@ -1,0 +1,43 @@
+.profile-header {
+    width: 80%;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.img-user {
+    width: 80px;
+    height: 80px;
+    margin-top: 20px;
+    border-radius: 40px;
+    margin-left: 50px;
+}
+
+.user-name {
+    margin-left : 30px;
+    font-size: 22px;
+    margin-top: 20px;
+}
+.post-info {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.follow-info {
+    font-size: 13px;
+    margin-left : 30px;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+}
+
+.margin-between {
+    padding-right: 100px;
+    margin-top: 10px;
+}
+.fullname-style{
+    margin-left : 30px;
+    margin-top: 50px;
+}
