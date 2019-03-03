@@ -3,7 +3,16 @@
     padding: 8px 32px 8px 16px;
     line-height: 36px;
 }
+.profile-img{
+    position: fixed;
+    top:9px;
+    right:10px;
+    width:27px;
+}
 .logo {
     font-size: 18px;
     color: #fff;
+}
+.btn-pointer{
+    cursor: pointer;
 }

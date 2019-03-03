@@ -125,14 +125,14 @@ class Home extends Component {
         let access_token = sessionStorage.getItem('access-token')
         let data = null;
         let xhr = new XMLHttpRequest();
-
+        let that = this;
         xhr.addEventListener("readystatechange", function () {
             if (this.readyState === 4) {
-                console.log(JSON.parse(this.responseText))
-                /*
+                var object = JSON.parse(this.responseText).data
+                console.log(object.profile_picture)
                 that.setState({
-                    data: JSON.parse(this.responseText).data
-                });*/
+                    profilePhoto: object.profile_picture
+                })
             }
         });
 
@@ -191,7 +191,7 @@ class Home extends Component {
         const { classes } = this.props;
         return (
             <div>
-                <Header />
+                <Header profilePhoto={this.state.profilePhoto}/>
                 <div className="flex-container">
                     <GridList cellHeight={800} cols={2} className={classes.gridListMain}>
                         {
