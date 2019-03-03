@@ -76,10 +76,13 @@ class Header extends Component {
                     <div className={this.state.showMenuItem}>
                         <Paper className={classes.paper}>
                             <MenuList>
+                                { this.props.isProfileScreen === false &&
                                  <Link to="/profile">
                                     <MenuItem onClick={this.myAccountHandler}>My account</MenuItem>
+                                    <Divider variant='middle' light={true} />
                                 </Link>
-                                <Divider variant='middle' light={true} />
+                                
+                                }
                                 <Link to="/">
                                     <MenuItem onClick={this.logoutHandler}>Logout</MenuItem>
                                 </Link>
