@@ -7,6 +7,8 @@ import Divider from '@material-ui/core/Divider';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import { Link } from 'react-router-dom'
+import { Input } from '@material-ui/core';
+import search from '../../assets/search.svg';
 
 const styles = theme => ({
     root: {
@@ -36,7 +38,7 @@ class Header extends Component {
         }
     }
 
-    componentWillMount(){
+    componentWillMount() {
         console.log(this.props.isProfileScreen)
     }
     onClickProfileIcon = () => {
@@ -49,7 +51,7 @@ class Header extends Component {
         this.state.showMenuItem === 'dispNone' ? this.setState({ showMenuItem: 'dispBlock' }) : this.setState({ showMenuItem: 'dispNone' })
         sessionStorage.clear();
     }
-   
+
     render() {
         const { classes } = this.props;
         return (
@@ -57,13 +59,20 @@ class Header extends Component {
                 <header className="app-header">
                     {
                         this.props.isProfileScreen === false &&
-                         <span className="logo">  Image Viewer </span> 
+                        <span className="logo">  Image Viewer </span>
                     }
                     {
-                         this.props.isProfileScreen === true &&
-                         <Link to="/home">
-                             <span className="logo">  Image Viewer </span> 
-                         </Link>   
+                        this.props.isProfileScreen === true &&
+                        <Link to="/home">
+                            <span className="logo">  Image Viewer </span>
+                        </Link>
+                    }
+                    {
+                        this.props.isProfileScreen === false && this.props.profilePhoto &&
+                        <span className="white">
+                            <img src={search} alt="test" />
+                            <Input type="text" disableUnderline={true} placeholder="Search.." onChange={this.searchCaption} />
+                        </span>
                     }
                     {
                         this.props.profilePhoto &&
@@ -76,11 +85,11 @@ class Header extends Component {
                     <div className={this.state.showMenuItem}>
                         <Paper className={classes.paper}>
                             <MenuList>
-                                { this.props.isProfileScreen === false &&
-                                 <Link to="/profile">
-                                    <MenuItem onClick={this.myAccountHandler}>My account</MenuItem>
-                                    <Divider variant='middle' light={true} />
-                                </Link>
+                                {this.props.isProfileScreen === false &&
+                                    <Link to="/profile">
+                                        <MenuItem onClick={this.myAccountHandler}>My account</MenuItem>
+                                        <Divider variant='middle' light={true} />
+                                    </Link>
                                 }
                                 <Link to="/">
                                     <MenuItem onClick={this.logoutHandler}>Logout</MenuItem>
