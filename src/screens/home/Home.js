@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import logo from '../../assets/logo.png';
 import search from '../../assets/search.svg';
-import likesnum from '../../assets/likesnum.png';
 import './Home.css';
 import { withStyles } from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
@@ -18,6 +16,9 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 import Header from '../../common/header/Header';
+import FavouriteBorder from '@material-ui/icons/FavoriteBorder';
+import { SvgIcon } from '@material-ui/core';
+import Favorite from '@material-ui/icons/Favorite';
 
 const styles = theme => ({
     root: {
@@ -92,6 +93,8 @@ class Home extends Component {
             inputValue: "",
             gridRequired: "dispBlock",
             commentContainer: "dispNone",
+            updateLikes: false,
+            numberOfLikes: 0
         }
     }
 
@@ -142,8 +145,10 @@ class Home extends Component {
                 that.setState({
                     dataPosts: JSON.parse(this.responseText).data
                 })
-                console.log("Media Posts");
-                console.log(that.state.dataPosts);
+                /*
+                that.setState({
+                    numberOfLikes: that.state.dataPosts.likes.count
+                })*/
             }
 
         });
@@ -161,6 +166,10 @@ class Home extends Component {
         var ds = d.toLocaleString();
         return ds;
     }
+    onlikesHandler = () => {
+        this.state.numberOfLikes === 0 ? this.setState({numberOfLikes : 1 }) : this.setState({numberOfLikes : 0});
+        this.state.updateLikes === false ? this.setState({updateLikes : true }) : this.setState({updateLikes : false});
+    }
     onClickCommentHandler = (event) => {
         this.comment = event.target.value
     }
@@ -168,12 +177,12 @@ class Home extends Component {
         this.post_id = postId
         if (this.comment === '') {
             this.setState({
-                commentContainer : 'dispNone'
+                commentContainer: 'dispNone'
             })
         }
         else {
             this.setState({
-                commentContainer : 'comment-container'
+                commentContainer: 'comment-container'
             })
         }
     }
@@ -181,7 +190,7 @@ class Home extends Component {
         const { classes } = this.props;
         return (
             <div>
-                <Header profilePhoto={this.state.profilePhoto} isProfileScreen={false}/>
+                <Header profilePhoto={this.state.profilePhoto} isProfileScreen={false} />
                 <div className="flex-container">
                     <GridList cellHeight={800} cols={2} className={classes.gridListMain}>
                         {
@@ -211,6 +220,29 @@ class Home extends Component {
                                                     }
                                                 </Typography>
                                             }
+                                            < br />
+                                            {
+                                                this.state.updateLikes === true &&
+                                                <div>
+                                                    <SvgIcon onClick={this.onlikesHandler} color="secondary">
+                                                        <Favorite />
+                                                    </SvgIcon>
+                                                    <span className="likes-style">
+                                                        {post.likes.count + this.state.numberOfLikes + " likes"}
+                                                    </span>
+                                                </div>
+                                            }
+                                            {
+                                                this.state.updateLikes === false &&
+                                                <div>
+                                                    <SvgIcon onClick={this.onlikesHandler}>
+                                                        <FavouriteBorder />
+                                                    </SvgIcon>
+                                                    <span className="likes-style">
+                                                        {post.likes.count + this.state.numberOfLikes + " likes"}
+                                                    </span>
+                                                </div>
+                                            }
                                             {
                                                 this.post_id === post.id &&
                                                 <div className={this.state.commentContainer}>
@@ -222,19 +254,19 @@ class Home extends Component {
                                                     </div>
                                                 </div>
                                             }
-                                             <br />
-                                             
+                                            <br />
+
                                             <div className="comment-container">
                                                 <div>
                                                     <FormControl className="formControl">
                                                         <InputLabel htmlFor="comment">
                                                             Add a comment
                                                          </InputLabel>
-                                                        <Input id="comment" onChange={this.onClickCommentHandler} comment={this.comment}/>
+                                                        <Input id="comment" onChange={this.onClickCommentHandler} comment={this.comment} />
                                                     </FormControl>
                                                 </div>
                                                 <div className="marginApply">
-                                                    <Button variant="contained" onClick={this.addCommentHandler.bind(this , post.id)} color="primary">ADD</Button>
+                                                    <Button variant="contained" onClick={this.addCommentHandler.bind(this, post.id)} color="primary">ADD</Button>
                                                 </div>
                                             </div>
                                         </CardContent>

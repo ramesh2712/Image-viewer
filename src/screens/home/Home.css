@@ -56,7 +56,10 @@
 .bluecColor{
     color:blue;
 }
-
 .username-bold {
     font-weight: bold;
+}
+.likes-style {
+  margin-left: 10px;
+  position: absolute;
 }
